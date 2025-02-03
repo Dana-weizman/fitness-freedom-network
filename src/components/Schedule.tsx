@@ -2,9 +2,12 @@ import { useState } from "react";
 import { format, addDays } from "date-fns";
 import { Button } from "@/components/ui/button";
 import { ClassGrid } from "./ClassGrid";
+import { useNavigate } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 
 export function Schedule() {
   const [selectedDay, setSelectedDay] = useState(new Date());
+  const navigate = useNavigate();
   
   const next7Days = Array.from({ length: 7 }, (_, i) => {
     const date = addDays(new Date(), i);
@@ -18,7 +21,17 @@ export function Schedule() {
   return (
     <div className="space-y-6 p-4">
       <div className="space-y-2">
-        <h2 className="text-2xl font-bold">Schedule Class</h2>
+        <div className="flex items-center gap-2">
+          <Button 
+            variant="ghost" 
+            size="icon"
+            onClick={() => navigate('/')}
+            className="h-8 w-8"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          <h2 className="text-2xl font-bold">Schedule Class</h2>
+        </div>
         <p className="text-gray-500">Select a day and class</p>
       </div>
 
