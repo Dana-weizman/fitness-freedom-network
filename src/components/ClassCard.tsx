@@ -23,16 +23,16 @@ export function ClassCard({ title, instructor, time, date, location, image }: Cl
   };
 
   return (
-    <Card className="overflow-hidden transition-all hover:shadow-lg">
+    <Card className="overflow-hidden transition-all active:scale-95 touch-manipulation">
       <div className="aspect-video w-full overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="h-full w-full object-cover transition-transform hover:scale-105"
+          className="h-full w-full object-cover"
         />
       </div>
       <CardHeader>
-        <CardTitle className="text-xl">{title}</CardTitle>
+        <CardTitle className="text-lg">{title}</CardTitle>
         <p className="text-sm text-gray-500">with {instructor}</p>
       </CardHeader>
       <CardContent>
@@ -52,7 +52,10 @@ export function ClassCard({ title, instructor, time, date, location, image }: Cl
         </div>
       </CardContent>
       <CardFooter>
-        <Button onClick={handleBooking} className="w-full bg-primary hover:bg-primary/90">
+        <Button 
+          onClick={handleBooking} 
+          className="w-full bg-primary hover:bg-primary/90 active:bg-primary/80"
+        >
           Book Now
         </Button>
       </CardFooter>
