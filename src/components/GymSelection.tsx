@@ -12,6 +12,8 @@ import {
 
 export function GymSelection() {
   const navigate = useNavigate();
+  const [selectedLocation, setSelectedLocation] = React.useState<string>("");
+
   // This would typically come from a backend/local storage
   const lastVisitedGym = {
     name: "FitZone Gym",
@@ -33,7 +35,7 @@ export function GymSelection() {
         <MapPin className="h-5 w-5 text-primary mt-1" />
         <div className="flex-1">
           <h3 className="font-semibold mb-2">Current Location</h3>
-          <Select defaultValue="manhattan">
+          <Select onValueChange={setSelectedLocation} value={selectedLocation}>
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Select a location" />
             </SelectTrigger>
@@ -67,6 +69,7 @@ export function GymSelection() {
       <Button 
         className="w-full bg-primary hover:bg-primary/90 active:bg-primary/80"
         onClick={handleSelectGym}
+        disabled={!selectedLocation}
       >
         Select Gym
       </Button>
