@@ -29,31 +29,27 @@ export function GymSelection() {
         <p className="text-gray-500">Choose your preferred location</p>
       </div>
 
-      <Card className="bg-white">
-        <CardContent className="p-4 space-y-4">
-          <div className="flex items-start gap-3">
-            <MapPin className="h-5 w-5 text-primary mt-1" />
-            <div className="flex-1">
-              <h3 className="font-semibold mb-2">Current Location</h3>
-              <Select defaultValue="manhattan">
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a location" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="manhattan">Manhattan Fitness Center</SelectItem>
-                  <SelectItem value="brooklyn">Brooklyn Strength & Conditioning</SelectItem>
-                  <SelectItem value="queens">Queens Elite Gym</SelectItem>
-                  <SelectItem value="bronx">Bronx Power House</SelectItem>
-                  <SelectItem value="staten">Staten Island Fitness Hub</SelectItem>
-                  <SelectItem value="upper-east">Upper East Side Wellness</SelectItem>
-                  <SelectItem value="soho">SoHo Training Studio</SelectItem>
-                  <SelectItem value="tribeca">TriBeCa Athletic Club</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="flex items-start gap-3">
+        <MapPin className="h-5 w-5 text-primary mt-1" />
+        <div className="flex-1">
+          <h3 className="font-semibold mb-2">Current Location</h3>
+          <Select defaultValue="manhattan">
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Select a location" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="manhattan">Manhattan Fitness Center</SelectItem>
+              <SelectItem value="brooklyn">Brooklyn Strength & Conditioning</SelectItem>
+              <SelectItem value="queens">Queens Elite Gym</SelectItem>
+              <SelectItem value="bronx">Bronx Power House</SelectItem>
+              <SelectItem value="staten">Staten Island Fitness Hub</SelectItem>
+              <SelectItem value="upper-east">Upper East Side Wellness</SelectItem>
+              <SelectItem value="soho">SoHo Training Studio</SelectItem>
+              <SelectItem value="tribeca">TriBeCa Athletic Club</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
 
       <Card className="bg-white">
         <CardContent className="p-4 space-y-4">
