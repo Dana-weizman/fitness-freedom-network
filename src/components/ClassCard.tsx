@@ -1,7 +1,19 @@
+
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, MapPin } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 interface ClassCardProps {
   title: string;
@@ -52,12 +64,25 @@ export function ClassCard({ title, instructor, time, date, location, image }: Cl
         </div>
       </CardContent>
       <CardFooter>
-        <Button 
-          onClick={handleBooking} 
-          className="w-full bg-primary hover:bg-primary/90 active:bg-primary/80"
-        >
-          Book Now
-        </Button>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button className="w-full bg-primary hover:bg-primary/90 active:bg-primary/80">
+              Book Now
+            </Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Confirm Booking</AlertDialogTitle>
+              <AlertDialogDescription>
+                Are you sure you want to book {title} with {instructor} on {date} at {time}?
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction onClick={handleBooking}>Book</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </CardFooter>
     </Card>
   );
