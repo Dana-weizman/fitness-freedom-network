@@ -3,14 +3,7 @@ import { MapPin, History } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 export function GymSelection() {
   const navigate = useNavigate();
   const [selectedLocation, setSelectedLocation] = React.useState<string>("");
@@ -20,13 +13,10 @@ export function GymSelection() {
     name: "FitZone Gym",
     location: "123 Main Street, Downtown"
   };
-
   const handleSelectGym = () => {
     navigate('/schedule');
   };
-
-  return (
-    <div className="space-y-6 p-4">
+  return <div className="space-y-6 p-4">
       <div className="space-y-2">
         <h2 className="text-2xl font-bold">Select Gym</h2>
         <p className="text-gray-500">Choose your preferred location</p>
@@ -67,13 +57,8 @@ export function GymSelection() {
         </CardContent>
       </Card>
 
-      <Button 
-        className="w-full bg-primary hover:bg-primary/90 active:bg-primary/80"
-        onClick={handleSelectGym}
-        disabled={!selectedLocation}
-      >
+      <Button onClick={handleSelectGym} disabled={!selectedLocation} className="w-full bg-primary hover:bg-primary/90 active:bg-primary/80 bg-orange-500 hover:bg-orange-400">
         Select Gym
       </Button>
-    </div>
-  );
+    </div>;
 }
